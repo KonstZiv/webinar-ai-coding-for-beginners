@@ -1,0 +1,15 @@
+[project]
+name = "webinar-ai-coding-for-beginners"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.14"
+dependencies = [
+    "rich>=14.3.1",
+    "tic-tac-toe-3x3>=1.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
+    "ruff>=0.14.14",
+]
