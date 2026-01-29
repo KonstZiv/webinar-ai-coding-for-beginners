@@ -327,7 +327,13 @@ class TestWinningCellsHighlight:
         return styles
 
     @pytest.mark.parametrize(
-        ("grid", "starting_mark", "expected_winner", "expected_winning_cells", "description"),
+        (
+            "grid",
+            "starting_mark",
+            "expected_winner",
+            "expected_winning_cells",
+            "description",
+        ),
         [
             # Horizontal wins - X wins (X started, X>O)
             ("XXX00    ", Mark.CROSS, Mark.CROSS, [0, 1, 2], "top row"),
