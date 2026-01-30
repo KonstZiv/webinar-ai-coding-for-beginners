@@ -141,6 +141,32 @@ GitHub Actions workflow (`.github/workflows/ci.yml`):
 
 ---
 
+## Session Log
+
+### Session 1 (2026-01-29)
+
+**Виконано:**
+1. ✅ Ініціалізація проєкту — створено CLAUDE.md
+2. ✅ Task 1: RichRenderer
+   - Досліджено бібліотеку tic-tac-toe-3x3
+   - Реалізовано RichRenderer з ASCII art 17×7
+   - Налаштовано editable install (hatchling)
+3. ✅ Тестування — 43 тести для renderer
+4. ✅ CI/CD — GitHub Actions (lint, test, ai-review)
+
+**Створені файли:**
+- `src/my_tic_tac_toe/__init__.py`
+- `src/my_tic_tac_toe/__main__.py`
+- `src/my_tic_tac_toe/renderer.py`
+- `tests/test_renderer.py`
+- `.github/workflows/ci.yml`
+
+**Оновлені файли:**
+- `pyproject.toml` — додано build-system
+- `CLAUDE.md` — документація
+
+---
+
 ## Наступні задачі
 
 (Тут буде опис Task 2, Task 3, тощо)
