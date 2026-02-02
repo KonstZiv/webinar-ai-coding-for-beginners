@@ -44,7 +44,9 @@ def main() -> None:
     renderer = RichRenderer()
 
     if args.ai:
-        ai_class = MinimaxComputerPlayer if args.ai == "minimax" else RandomComputerPlayer
+        ai_class = (
+            MinimaxComputerPlayer if args.ai == "minimax" else RandomComputerPlayer
+        )
 
         if args.ai_first:
             player1 = ai_class(Mark.CROSS)
