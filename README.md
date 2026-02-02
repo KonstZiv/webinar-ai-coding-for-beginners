@@ -49,9 +49,6 @@ uv run python -m my_tic_tac_toe --ai random
 
 # AI ходить першим (грає за X)
 uv run python -m my_tic_tac_toe --ai --ai-first
-
-# Зберегти історію ходів (без Live display)
-uv run python -m my_tic_tac_toe --no-live
 ```
 
 **Опції командного рядка:**
@@ -61,6 +58,5 @@ uv run python -m my_tic_tac_toe --no-live
 | `--ai minimax` | Грати проти Minimax AI (непереможний) |
 | `--ai random` | Грати проти Random AI |
 | `--ai-first` | AI ходить першим (грає за X) |
-| `--no-live` | Вимкнути Live display (зберігає історію в терміналі) |
 | `-h, --help` | Показати довідку |
 

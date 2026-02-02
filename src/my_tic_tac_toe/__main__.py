@@ -27,18 +27,13 @@ def parse_args() -> argparse.Namespace:
         action="store_true",
         help="AI plays first (as X). By default, human plays first.",
     )
-    parser.add_argument(
-        "--no-live",
-        action="store_true",
-        help="Disable Live display. Preserves game history in terminal.",
-    )
     return parser.parse_args()
 
 
 def main() -> None:
     """Start a game of Tic-Tac-Toe."""
     args = parse_args()
-    renderer = RichRenderer(use_live=not args.no_live)
+    renderer = RichRenderer()
 
     if args.ai:
         ai_class = (
