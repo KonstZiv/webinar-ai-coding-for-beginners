@@ -136,7 +136,10 @@ GitHub Actions workflow (`.github/workflows/ci.yml`):
 - **Test job**: `pytest --verbose`
 - **AI Review job**: `KonstZiv/ai-code-reviewer@v1` (тільки для PR, після lint+test)
   - Потребує secret `GOOGLE_API_KEY` для Google Gemini API
-- Triggers: push/PR to `main`
+  - `LANGUAGE: uk` — ревью українською мовою
+- Triggers:
+  - push to `main`
+  - PR to `main` з типами `opened`, `synchronize`
 - Python 3.14 via `uv python install`
 
 ---
@@ -164,6 +167,17 @@ GitHub Actions workflow (`.github/workflows/ci.yml`):
 **Оновлені файли:**
 - `pyproject.toml` — додано build-system
 - `CLAUDE.md` — документація
+
+### Session 2 (2026-01-30)
+
+**Виконано:**
+1. ✅ Оновлення CI workflow відповідно до актуальної документації ai-code-reviewer
+   - Додано `types: [opened, synchronize]` для точнішого тригера PR
+   - Додано `LANGUAGE: uk` для ревью українською мовою
+
+**Оновлені файли:**
+- `.github/workflows/ci.yml` — оновлено конфігурацію ai-code-reviewer
+- `CLAUDE.md` — оновлено документацію
 
 ---
 

@@ -26,9 +26,37 @@
 - ruff — лінтинг
 - GitHub Actions + ai-code-reviewer — CI/CD з AI-рев'ю
 
-**Кінцевий результат:**
-Повноцінна консольна гра, яку можна встановити та запустити:
+**Встановлення:**
 ```bash
-uv run python -m my_tic_tac_toe
+# Клонувати репозиторій
+git clone https://github.com/your-username/webinar-ai-coding-for-beginners.git
+cd webinar-ai-coding-for-beginners
+
+# Встановити залежності
+uv sync
 ```
+
+**Запуск гри:**
+```bash
+# Два гравці (human vs human)
+uv run python -m my_tic_tac_toe
+
+# Грати проти Minimax AI (непереможний)
+uv run python -m my_tic_tac_toe --ai
+
+# Грати проти Random AI (легкий рівень)
+uv run python -m my_tic_tac_toe --ai random
+
+# AI ходить першим (грає за X)
+uv run python -m my_tic_tac_toe --ai --ai-first
+```
+
+**Опції командного рядка:**
+| Опція | Опис |
+|-------|------|
+| `--ai` | Грати проти AI (за замовчуванням: minimax) |
+| `--ai minimax` | Грати проти Minimax AI (непереможний) |
+| `--ai random` | Грати проти Random AI |
+| `--ai-first` | AI ходить першим (грає за X) |
+| `-h, --help` | Показати довідку |
 
