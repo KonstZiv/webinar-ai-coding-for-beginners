@@ -1,6 +1,7 @@
 """Rich-based renderer for Tic-Tac-Toe game with ASCII art."""
 
-from rich.console import Console
+from rich.console import Console, Group
+from rich.live import Live
 from rich.text import Text
 from tic_tac_toe_3x3.game.renderers import Renderer
 from tic_tac_toe_3x3.logic.models import GameState, Mark
@@ -43,9 +44,16 @@ class RichRenderer(Renderer):
     - Game status display below the board
     """
 
-    def __init__(self) -> None:
-        """Initialize the renderer."""
+    def __init__(self, *, use_live: bool = True) -> None:
+        """Initialize the renderer.
+
+        Args:
+            use_live: Whether to use Live display for smooth updates.
+                      Set to False to preserve game history in terminal.
+        """
         self.console = Console()
+        self.use_live = use_live
+        self._live: Live | None = None
 
     def render(self, game_state: GameState) -> None:
         """Render the current game state.
@@ -53,15 +61,30 @@ class RichRenderer(Renderer):
         Args:
             game_state: Current state of the game.
         """
-        self.console.clear()
-        self.console.print()
+        content = self._build_content(game_state)
 
+        if self.use_live:
+            if self._live is None:
+                self._live = Live(content, console=self.console, refresh_per_second=10)
+                self._live.start()
+            else:
+                self._live.update(content)
+        else:
+            self.console.print()
+            self.console.print(content)
+
+    def _build_content(self, game_state: GameState) -> Group:
+        """Build the complete renderable content.
+
+        Args:
+            game_state: Current state of the game.
+
+        Returns:
+            Group containing board and status.
+        """
         board = self._build_board(game_state)
-        self.console.print(board)
-        self.console.print()
-
         status = self._get_status_text(game_state)
-        self.console.print(status)
+        return Group(Text(), board, Text(), status)
 
     def _build_board(self, game_state: GameState) -> Text:
         """Build the complete game board as a Rich Text object.
