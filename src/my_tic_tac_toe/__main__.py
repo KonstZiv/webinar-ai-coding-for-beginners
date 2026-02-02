@@ -2,12 +2,12 @@
 
 import argparse
 
-from tic_tac_toe_3x3.console_simple.players import ConsolePlayer
 from tic_tac_toe_3x3.game.engine import TicTacToe
 from tic_tac_toe_3x3.game.players import MinimaxComputerPlayer, RandomComputerPlayer
 from tic_tac_toe_3x3.logic.models import Mark
 
 from my_tic_tac_toe import RichRenderer
+from my_tic_tac_toe.player import RichPlayer
 
 
 def parse_args() -> argparse.Namespace:
@@ -42,13 +42,13 @@ def main() -> None:
 
         if args.ai_first:
             player1 = ai_class(Mark.CROSS)
-            player2 = ConsolePlayer(Mark.NAUGHT)
+            player2 = RichPlayer(Mark.NAUGHT, renderer)
         else:
-            player1 = ConsolePlayer(Mark.CROSS)
+            player1 = RichPlayer(Mark.CROSS, renderer)
             player2 = ai_class(Mark.NAUGHT)
     else:
-        player1 = ConsolePlayer(Mark.CROSS)
-        player2 = ConsolePlayer(Mark.NAUGHT)
+        player1 = RichPlayer(Mark.CROSS, renderer)
+        player2 = RichPlayer(Mark.NAUGHT, renderer)
 
     TicTacToe(player1, player2, renderer).play()
 
