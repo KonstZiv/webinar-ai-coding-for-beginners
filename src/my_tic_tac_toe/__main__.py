@@ -14,14 +14,6 @@ def parse_args() -> argparse.Namespace:
     """Parse command-line arguments."""
     parser = argparse.ArgumentParser(
         description="Play Tic-Tac-Toe with a beautiful Rich renderer.",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-        epilog="""
-Examples:
-  python -m my_tic_tac_toe              # Two human players
-  python -m my_tic_tac_toe --ai         # Play against Minimax AI (unbeatable)
-  python -m my_tic_tac_toe --ai random  # Play against Random AI
-  python -m my_tic_tac_toe --ai-first   # AI plays first (X)
-""",
     )
     parser.add_argument(
         "--ai",
